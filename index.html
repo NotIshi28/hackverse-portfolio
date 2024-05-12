@@ -22,11 +22,15 @@
         }
 
         body {
+            overflow-x: hidden;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            cursor: none;
         }
-
+        ::-webkit-scrollbar {
+            display: none;
+        }
         p {
             margin: 0;
             padding: 0;
@@ -47,6 +51,7 @@
             margin-top: 1.7vw;
             margin-left: 2vw;
             width: max-content;
+            background-color: #fbfbfb;
         }
 
         .welcomeNav {
@@ -100,7 +105,7 @@
 
         .balloon {
             margin-top: 3vw;
-            width: 99vw;
+            width: 100vw;
             height: 30vh;
             background-color: black;
         }
@@ -180,50 +185,46 @@
             font-size: 1.8vw;
         }
 
+        .specialized3 {
+            font-family: Inter;
+            width: 60vw;
+            font-size: 1.8vw;
+            /* margin-left: 20vw; */
+        }
         .skills {
             display: flex;
             gap: 1vw;
             align-items: flex-start;
-            margin-left: 4vw;
         }
 
         .mainSkills {
             margin-top: 13vw;
             justify-content: space-between;
-            margin-bottom: 25vh;
         }
 
         .specialized2 {
-            font-size: 1.2vw;
-            width: 40vw;
+            font-size: 0.8vw;
+            width: 20vw;
         }
 
         .skills2 {
-            margin-top: 11vh;
+            margin-top: 12vw;
         }
 
         .skillsShort p {
-            margin-left: 16vw;
+            margin-left: 20vw;
             font-family: bitxmap;
-            font-size: 1vw;
-            margin-bottom: 0.6vh;
-        }
-        .skillsShort2 p {
-            /* margin-left: 16vw; */
-            font-family: bitxmap;
-            font-size: 1vw;
-            margin-bottom: 0.6vh;
-            margin-left: 3vw;
+            font-size: 0.8vw;
         }
         .map{
             width: 4vw;
             height:3vw;
         }
-        
+
         .arrowDown{
             width: 2vw;
             height: 3vw;
-            margin-left: 0.6vw;
+            margin-left: 1vw;
         }
         .img24{
             width:7vw;
@@ -243,18 +244,21 @@
             position:absolute;
         }
         .icons2{
-            margin-top: 3vw;
+            display: flex;
+            flex-direction: column;
+            margin-left: 2vw;
+            gap:0.3vw;
+            position:absolute;
+            margin-top: -3vw;
         }
         .stripe{
             width:7vw;
             height:3vw;
         }
-
-
-
         .portrait{
             display: flex;
             flex-direction: row;
+            overflow-x: auto;
         }
         .skills-1{
             display: flex;
@@ -263,6 +267,7 @@
             width: 70vw;
             font-family: monument;
             font-size: 4rem;
+            margin-top: 15vw;
         }
         .intro-1{
             width: 70vw;
@@ -322,12 +327,210 @@
             font-size: 1.2rem;
             margin-bottom: 10vh;
         }
+
+        .skillsShort2 p{
+            margin-top: 0.3vw;
+            margin-left: 2vw;
+            font-family: bitxmap;
+            font-size: 0.8vw;
+        }
+        .pointer3{
+            margin-left: 23vw;
+            width: 1vw;
+            height: 1vw;
+            margin-top: 0.4vw;
+            background-color: black;
+        }
+        .pointer4{
+            margin-left: 34vw;
+            width: 1vw;
+            height: 1vw;
+            margin-top: 0.4vw;
+            background-color: black;
+        }
+        .cursor {
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vw;
+            pointer-events: none;
+        }
+        .blueSquare {
+            background-color: blue;
+            display: inline-block;
+            margin: 0px;
+            width: 10vw;
+        }
+        .blueSquareRow {
+            height: 12.5vh;
+            width: 100vw;
+            display: flex;
+        }
+        .blueSquareRow:nth-child(odd) .blueSquare:nth-child(even), .blueSquareRow:nth-child(even) .blueSquare:nth-child(odd) {
+            animation-name: disappearUgh;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+        .blueSquareRow:nth-child(even) .blueSquare:nth-child(even) {
+            animation-name: disappearUgh;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-delay: 0.2s;
+        }
+        .blueSquareRow:nth-child(odd) .blueSquare:nth-child(odd) {
+            animation-name: disappearUgh;
+            animation-duration: 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+            animation-delay: 0.4s;
+        }
+        @keyframes disappearUgh {
+            0% {opacity: 1;}
+            100% {opacity: 0; z-index: -1;}
+        }
+        .hopeful{
+            width: 80vw;
+            margin-left: 10vw;
+            margin-top: 20vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-hopeful{
+            font-family: monument;
+            font-size: 4rem;
+            text-align: center;
+        }
+
+        .bluerect{
+            margin-top: 15vh;
+            align-self: center;
+        }
+
+        .hesitate{
+            font-family: bitxmap;
+            margin-top: 0vh;
+            margin-left: 42vw;
+            margin-right: 15vw;
+        }
     </style>
 
 
 </head>
 
 <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="overlay">
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+        <div class="blueSquareRow">
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+            <div class="blueSquare"></div>
+        </div>
+    </div>
     <div class="navbar">
         <svg class="icon" id="cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27">
             <rect id="topLeft" width="9" height="9" fill="currentColor"></rect>
@@ -447,16 +650,16 @@
                 <p>RESPONSIVE DESIGN</p>
                 <p>CUSTOMIZABLE CMS</p>
             </div>
-            <div class="pointer"></div>
-            <p class="specialized">
-                I IMPLEMENT "PIXEL PERFECT" PRINCIPLES FOR A NEAT AND TIDY WEBSITE DESIGN, ENSURING A CONSISTENT USER EXPERIENCE ACROSS ALL DEVICES THROUGH RESPONSIVE DESIGN. USING A COMPLETELY CUSTOMIZABLE CMS, I PROVIDE EASY CONTENT MANAGEMENT AND INCORPORATE GSAP ANIMATIONS FOR DYNAMIC INTERACTION.|
+            <div class="pointer3"></div>
+            <p class="specialized specialized3">
+                I IMPLEMENT "PIXEL PERFECT" PRINCIPLES FOR A NEAT AND TIDY WEBSITE DESIGN, ENSURING A CONSISTENT USER EXPERIENCE ACROSS ALL DEVICES THROUGH RESPONSIVE DESIGN. USING A COMPLETELY CUSTOMIZABLE CMS, I PROVIDE EASY CONTENT MANAGEMENT AND INCORPORATE GSAP ANIMATIONS FOR DYNAMIC INTERACTION.
             </p>
-            
-            
+
+
         </div>
-        
-        <div class="icons icons-2">
-            <div class="icons1">
+
+        <div class="icons2">
+            <div>
                 <svg class="map"xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 55"><style type="text/css">
                 .st0 {
                 fill: none;
@@ -481,20 +684,20 @@
               fill: #fff;
             }
           </style></defs><g id="Rectangle"><rect width="83" height="56.98"></rect></g><g id="Capsule"><rect class="cls-11" x="1.2" y="1.19" width="80.59" height="54.61" rx="27.3"></rect></g></svg>
-        
+
           <img class="stripe"src="https://64.media.tumblr.com/0f28773743dac005eac7e067783840eb/tumblr_o0b18wFSyp1rpco88o1_500.gifv">
         </div>
 
 
         <div class="skills skills2">
-            <div class="pointer"></div>
+            <div class="pointer4"></div>
             <p class="specialized specialized2">
                 STIMULATE CUSTOMER ENGAGEMENT, PROMOTE YOUR OFFERS, AND INCREASE SALES WITH MY HIGH-PERFORMING MOBILE APPS. SAVE TIME AND MONEY WHILE IMPROVEING YOUR ONLINE PRESENCE FOR HIGHER VISIBILITY.
             </p>
         </div>
     </div>
 
-    <div class="portrait">
+    <div class="portrait" onwheel="handleSideScroll(event)" id="sideScrollDiv">
         <div class="portrait-1">
             <div class="skills-1">
                 <p>FRONTEND DEVELOPER</p>
@@ -505,7 +708,7 @@
             <div class="intro-1">
                 <div class="name">
                     <p>HELLO</p>
-                    <p>I'M MATTHIEU</p>
+                    <p>I'M PRISHA</p>
                 </div>
                 <div class="detail-intro">
                     SINCE 2020, I'VE HAD THE PRIVILEGE OF IMMERSING MYSELF IN THE INTRIGUING WORLD OF WEB DEVELOPMENT THROUGH MY VARIOUS ASSIGNMENTS.
@@ -517,65 +720,85 @@
         <div class="portrait-2" style="width: 300px;">
             <img src="public/port.png" alt="">
         </div>
-    </div>
-
-    <div class="skillsoverview">
-        <div class="column column1">
-            <div class="headingSkills">
-                UX
+        <div class="skillsoverview">
+            <div class="column column1">
+                <div class="headingSkills">
+                    UX
+                </div>
+                <div class="textSkills">
+                    THE CREATION OF MODULAR STATIC WEBSITES USING CUTTING-EDGE TECHNOLOGIES SUCH AS REACT, NEXT, AND GATSBY. EACH OF THESE SITES IS DESIGNED TO OFFER AN EXCEPTIONAL USER EXPERIENCE.
+                </div>
+                <div class="numberSkills">
+                    [01]
+                </div>
+    
+    
+                <div class="headingSkills">
+                    SEO
+                </div>
+                <div class="textSkills">
+                    THE IMPLEMENTATION OF CMS DATA SCHEMAS AND SEO OPTIMIZATION TO ENSURE MAXIMUM ONLINE VISIBILITY. MASTERY OF THESE ASPECTS IS ESSENTIAL FOR THE SUCCESS OF ANY ONLINE PROJECT.
+                </div>
+                <div class="numberSkills">
+                    [02]
+                </div>
+    
+    
+                <div class="headingSkills">
+                    MOBILE
+                </div>
+                <div class="textSkills">
+                    THE DESIGN AND DEVELOPMENT OF MOBILE APPLICATIONS FOR THE E-COMMERCE SECTOR, USING REACT NATIVE. THESE APPLICATIONS PROVIDE A SMOOTH AND USER-FRIENDLY SHOPPING EXPERIENCE.
+                </div>
+                <div class="numberSkills">
+                    [03]
+                </div>
             </div>
-            <div class="textSkills">
-                THE CREATION OF MODULAR STATIC WEBSITES USING CUTTING-EDGE TECHNOLOGIES SUCH AS REACT, NEXT, AND GATSBY. EACH OF THESE SITES IS DESIGNED TO OFFER AN EXCEPTIONAL USER EXPERIENCE.
-            </div>
-            <div class="numberSkills">
-                [01]
-            </div>
-
-
-            <div class="headingSkills">
-                SEO
-            </div>
-            <div class="textSkills">
-                THE IMPLEMENTATION OF CMS DATA SCHEMAS AND SEO OPTIMIZATION TO ENSURE MAXIMUM ONLINE VISIBILITY. MASTERY OF THESE ASPECTS IS ESSENTIAL FOR THE SUCCESS OF ANY ONLINE PROJECT.
-            </div>
-            <div class="numberSkills">
-                [02]
-            </div>
-
-
-            <div class="headingSkills">
-                MOBILE
-            </div>
-            <div class="textSkills">
-                THE DESIGN AND DEVELOPMENT OF MOBILE APPLICATIONS FOR THE E-COMMERCE SECTOR, USING REACT NATIVE. THESE APPLICATIONS PROVIDE A SMOOTH AND USER-FRIENDLY SHOPPING EXPERIENCE.
-            </div>
-            <div class="numberSkills">
-                [03]
+            <div class="column column2">
+                <div class="headingSkills">
+                    INNOVATIVE
+                </div>
+                <div class="textSkills">
+                    THE CREATION OF INNOVATIVE WEB APPLICATIONS USING APPROACHES SUCH AS ATOMIC DESIGN SLICING, INTEGRATION, AND END-TO-END TESTING WITH TOOLS LIKE STORYBOOK, CHROMATIC, JEST, AND VITE. THIS ENSURES THAT EACH ELEMENT FUNCTIONS SEAMLESSLY AND EFFECTIVELY.
+                </div>
+                <div class="numberSkills">
+                    [04]
+                </div>
+    
+    
+                <div class="headingSkills">
+                    TECHNO
+                </div>
+                <div class="textSkills">
+                    I AM PASSIONATE ABOUT MASTERING THE LATEST WEB DEVELOPMENT TECHNOLOGIES. I EXCEL IN CREATING STATIC SITES (JAMSTACK), AND I AM COMFORTABLE WITH THREE.JS, GSAP, RTK, AND GRAPHQL, WHICH ALLOWS ME TO CREATE HIGH-PERFORMING WEBSITES THAT MEET MY CLIENTS' NEEDS.
+                </div>
+                <div class="numberSkills">
+                    [05]
+                </div>
             </div>
         </div>
-        <div class="column column2">
-            <div class="headingSkills">
-                INNOVATIVE
-            </div>
-            <div class="textSkills">
-                THE CREATION OF INNOVATIVE WEB APPLICATIONS USING APPROACHES SUCH AS ATOMIC DESIGN SLICING, INTEGRATION, AND END-TO-END TESTING WITH TOOLS LIKE STORYBOOK, CHROMATIC, JEST, AND VITE. THIS ENSURES THAT EACH ELEMENT FUNCTIONS SEAMLESSLY AND EFFECTIVELY.
-            </div>
-            <div class="numberSkills">
-                [04]
-            </div>
+    </div>
+    <div class="hopeful">
+        <div class="text-hopeful">
+            I LOOK FORWARD TO
+            DISCUSSING YOUR NEEDS AND
+            HOW I CAN CONTRIBUTE TO
+            YOUR NEXT PROJECT.
+        </div>
 
+        <svg class="bluerect" width="70" height="70" viewBox="0 0 286 283" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="143" width="143" height="143" fill="#2502C7"/>
+            <rect y="140" width="143" height="143" fill="#2502C7"/>
+        </svg>
 
-            <div class="headingSkills">
-                TECHNO
-            </div>
-            <div class="textSkills">
-                I AM PASSIONATE ABOUT MASTERING THE LATEST WEB DEVELOPMENT TECHNOLOGIES. I EXCEL IN CREATING STATIC SITES (JAMSTACK), AND I AM COMFORTABLE WITH THREE.JS, GSAP, RTK, AND GRAPHQL, WHICH ALLOWS ME TO CREATE HIGH-PERFORMING WEBSITES THAT MEET MY CLIENTS' NEEDS.
-            </div>
-            <div class="numberSkills">
-                [05]
-            </div>
+        <div class="hesitate">
+            PLEASE DON'T HESITATE TO CONTACT ME
+            TO DISCUSS YOUR IDEAS AND GOALS FURTHER.
+            I AM EXCITED ABOUT THE OPPORTUNITY
+            TO CONNECT WITH YOU!
         </div>
     </div>
+
 
     <script type="text/javascript">
         setInterval(function () {
@@ -606,7 +829,22 @@
 
             document.getElementById("country").innerHTML = "BASED IN INDIA [" + time + " " + ampm + "]"
         }, 1000)
-
+        window.addEventListener('mousemove', (e) => {
+            document.getElementById('cursor').style.top = `${e.clientY - 10}px`
+            document.getElementById('cursor').style.left = `${e.clientX - 10}px`
+        })
+        const handleSideScroll = (e) => {
+            if ((document.getElementById('sideScrollDiv').scrollLeft == 0 && e.deltaY < 0) || (document.getElementById('sideScrollDiv').scrollLeft + document.getElementById('sideScrollDiv').clientWidth >= document.getElementById('sideScrollDiv').scrollWidth && e.deltaY > 0)) {    
+            } else {
+                console.log(document.getElementById('sideScrollDiv').scrollWidth)
+                e.preventDefault()
+            }
+            if (e.deltaY > 0 || e.deltaX > 0) {
+                document.getElementById('sideScrollDiv').scrollLeft += 25
+            } else {
+                document.getElementById('sideScrollDiv').scrollLeft -= 25
+            }
+        }
     </script>
 </body>
 
