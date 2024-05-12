@@ -407,6 +407,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            margin-bottom: 50vh;
         }
 
         .text-hopeful{
@@ -425,6 +426,41 @@
             margin-top: 0vh;
             margin-left: 42vw;
             margin-right: 15vw;
+        }
+        .projectsRow {
+            display: flex;
+            gap: 1vw;
+            margin: 1.5vw;
+            margin-bottom: 10vh;
+        }
+        .aboutMyWork {
+            width: 30vw;
+            font-size: 1.5vw;
+            font-family: BitxMap;
+            margin-top: 2vw;
+        }
+        .aboutCard img {
+            width: 30vw;
+            height: 30vw;
+            object-fit: cover;
+        }
+        .aboutCard h1 {
+            font-family: monument;
+            margin: 0px;
+            margin-bottom: 0.8vw;
+        }
+        .cardHeading {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .cardHeading p {
+            font-family: BitxMap;
+            font-size: 1.1vw;
+        }
+        .projectsRow {
+            display: flex;
+            justify-content: space-around;
         }
     </style>
 
@@ -538,12 +574,12 @@
             <rect id="topRight" x="18" width="9" height="9" fill="currentColor"></rect>
             <rect id="center" x="9" y="9" width="9" height="9" fill="currentColor"></rect>
         </svg>
-        <a class="welcomeNav">WELCOME</a>
-        <a>ABOUT</a>
-        <a>PROJECTS</a>
-        <a>CONTACT</a>
+        <a class="welcomeNav" onclick="scrollToTheElement('welcome')">WELCOME</a>
+        <a onclick="scrollToTheElement('about')">ABOUT</a>
+        <a onclick="scrollToTheElement('projects')">PROJECTS</a>
+        <a onclick="scrollToTheElement('contact')">CONTACT</a>
     </div>
-    <div class="introWel">
+    <div class="introWel" id="welcome">
         <div class="nameDiv">
             <div class="square"></div>
             <div class="intro">
@@ -558,8 +594,6 @@
         </div>
     </div>
     
-    <div class="balloon">
-    </div>
     
     <div class="landing-lower">
         <div class="landing-lower-1">
@@ -584,7 +618,7 @@
     </div>
     
     
-    <div class="mainSkills">
+    <div class="mainSkills" id="about">
         <div class="skills">
             <div class="pointer"></div>
             <p class="specialized">
@@ -798,7 +832,67 @@
             TO CONNECT WITH YOU!
         </div>
     </div>
-
+    <div class="projectsRow" id="projects">
+        <div class="aboutMyWork">ABOUT MY WORK</div>
+        <div class="aboutCard">
+            <div class="cardHeading">
+                <h1>GOBOXBOX</h1>
+                <i class="fas fa-jobhi"></i>
+            </div>
+            <img src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
+            <div class="cardHeading">
+                <p>MOBILE APP IOS/ANDROID</p>
+                <p>2022 MAR.</p>
+            </div>
+        </div>
+        <div class="aboutCard">
+            <div class="cardHeading">
+                <h1>GOBOXBOX</h1>
+                <i class="fas fa-jobhi"></i>
+            </div>
+            <img src="https://img.itch.zone/aW1nLzEzODI5MjI2LnBuZw==/315x250%23c/2pY61W.png">
+            <div class="cardHeading">
+                <p>MOBILE APP IOS/ANDROID</p>
+                <p>2022 MAR.</p>
+            </div>
+        </div>
+    </div>
+    <div class="projectsRow">
+        <div class="aboutCard">
+            <div class="cardHeading">
+                <h1>GOBOXBOX</h1>
+                <i class="fas fa-jobhi"></i>
+            </div>
+            <img src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
+            <div class="cardHeading">
+                <p>MOBILE APP IOS/ANDROID</p>
+                <p>2022 MAR.</p>
+            </div>
+        </div>
+        <div class="aboutCard">
+            <div class="cardHeading">
+                <h1>GOBOXBOX</h1>
+                <i class="fas fa-jobhi"></i>
+            </div>
+            <img src="https://img.itch.zone/aW1nLzEzODI5MjI2LnBuZw==/315x250%23c/2pY61W.png">
+            <div class="cardHeading">
+                <p>MOBILE APP IOS/ANDROID</p>
+                <p>2022 MAR.</p>
+            </div>
+        </div>
+        <div class="aboutCard">
+            <div class="cardHeading">
+                <h1>GOBOXBOX</h1>
+                <i class="fas fa-jobhi"></i>
+            </div>
+            <img src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
+            <div class="cardHeading">
+                <p>MOBILE APP IOS/ANDROID</p>
+                <p>2022 MAR.</p>
+            </div>
+        </div>
+    </div>
+    
 
     <script type="text/javascript">
         setInterval(function () {
@@ -844,6 +938,10 @@
             } else {
                 document.getElementById('sideScrollDiv').scrollLeft -= 25
             }
+        }
+        function scrollToTheElement(id) {
+            const elmnt = document.getElementById(id)
+            elmnt.scrollIntoView({behavior: 'smooth'})
         }
     </script>
 </body>
