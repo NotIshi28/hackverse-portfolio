@@ -80,14 +80,14 @@
         }
         .left {
             border: 1px solid black;
-            border-radius: 3vw;
+            border-radius: 2.3vw;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
         .right {
             flex: 1;
-            border-radius: 1.5vw;
+            border-radius: 2.3vw;
             display: flex;
             flex-direction: column;
             gap: 1vw;
@@ -99,7 +99,7 @@
             justify-content: center;
             font-family: monument;
             border: 1px solid black;
-            border-radius: 1.5vw;
+            border-radius: 2.3vw;
             font-size: 3vw;
         }
         .answerContainer {
@@ -128,7 +128,7 @@
         }
         .myQuestion {
             border: 1px solid black;
-            border-radius: 1.5vw;
+            border-radius: 2.3vw;
             border-top-right-radius: 0px;
             padding: 1vw;
             font-size: 1.1vw;
@@ -137,12 +137,13 @@
         }
         .yourAnswer {
             border: 1px solid black;
-            border-radius: 1.5vw;
-            border-top-right-radius: 0px;
+            border-radius: 2.3vw;
+            border-top-left-radius: 0px;
             padding: 1vw;
             font-size: 1.1vw;
-            width: 40%;
+            width: 60%;
             text-align: center;
+            margin-bottom: 1.5vw;
         }
     </style>
 </head>
@@ -205,7 +206,14 @@
                         document.getElementById('answerContainer').appendChild(yourAnswerContainer)
                         document.getElementById('answerContainer').scrollTop = document.getElementById('answerContainer').scrollHeight
                     }).catch(err => {
-                        console.log(err)
+                        var yourAnswerContainer= document.createElement('div')
+                        var yourAnswer = document.createElement('div')
+                        yourAnswerContainer.className = 'yourAnswerContainer'
+                        yourAnswer.className = 'yourAnswer'
+                        yourAnswer.innerHTML = "Oops! An error occured. Please try again later."
+                        yourAnswerContainer.appendChild(yourAnswer)
+                        document.getElementById('answerContainer').appendChild(yourAnswerContainer)
+                        document.getElementById('answerContainer').scrollTop = document.getElementById('answerContainer').scrollHeight
                     })  
             }
         })
