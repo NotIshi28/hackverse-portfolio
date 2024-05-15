@@ -536,6 +536,32 @@
         * {
             cursor: none;
         }
+        .cursor {
+            position: fixed;
+            top: -5px;
+            left: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: #000000;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999999;
+        }
+
+        .cursor-trail {
+            --size: 50px;
+            position: fixed;
+            top: calc(var(--size) / -2);
+            left: calc(var(--size) / -2);
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+            box-shadow: 0 0 0 1px #000;
+            pointer-events: none;
+            transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out,
+                height 0.15s ease-out, background-color 0.15s ease-out;
+            z-index: 9999999;
+        }
     </style>
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
@@ -543,6 +569,7 @@
 
 <body>
     <div class="cursor" id="cursor"></div>
+    <div class="cursor-trail" id="cursor-trail"></div>
     <div class="overlay">
         <div class="blueSquareRow">
             <div class="blueSquare"></div>
@@ -649,10 +676,10 @@
             <rect id="center" x="9" y="9" width="9" height="9" fill="currentColor"></rect>
         </svg>
         <a class="welcomeNav special-text" onclick="scrollToTheElement('welcome')" data-value="WELCOME">WELCOME</a>
-        <a class="special-text" data-value="ABOUT" onclick="scrollToTheElement('about')">ABOUT</a>
-        <a class="special-text" data-value="PROJECTS" onclick="scrollToTheElement('projects')">PROJECTS</a>
-        <a class="special-text" data-value="CONTACT" onclick="scrollToTheElement('contact')">CONTACT</a>
-        <a class="special-text" data-value="BOT" onclick="window.location.href = '/bot.html'">BOT</a>
+        <a class="special-text" data-cursor="pointer" data-value="ABOUT" onclick="scrollToTheElement('about')">ABOUT</a>
+        <a class="special-text" data-cursor="pointer" data-value="PROJECTS" onclick="scrollToTheElement('projects')">PROJECTS</a>
+        <a class="special-text" data-cursor="pointer" data-value="CONTACT" onclick="scrollToTheElement('contact')">CONTACT</a>
+        <a class="special-text" data-cursor="pointer" data-value="BOT" onclick="window.location.href = '/bot.html'">BOT</a>
     </div>
     <div class="introWel" id="welcome">
         <div class="nameDiv">
@@ -1044,16 +1071,45 @@
 
             document.getElementById("country").innerHTML = "BASED IN INDIA [" + time + " " + ampm + "]"
         }, 1000)
-        window.addEventListener('mousemove', (e) => {
-            const keyframes = [
-                { top: `${e.clientY - 10}px` },
-                { left: `${e.clientX - 10}px` },
-            ];
-            document.getElementById('cursor').style.top = `${e.clientY - 10}px`
-            document.getElementById('cursor').style.left = `${e.clientX - 10}px`
-            document.getElementById('cursor').animate(keyframes, {duration: 200, fill: "forwards"})
-            
-        })
+        window.onload = () => {
+    const cursor = document.querySelector("#cursor");
+    const cursorBorder = document.querySelector("#cursor-trail");
+    const cursorPos = { x: 0, y: 0 };
+    const cursorBorderPos = { x: 0, y: 0 };
+
+    document.addEventListener("mousemove", (e) => {
+        cursorPos.x = e.clientX;
+        cursorPos.y = e.clientY;
+
+        cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+        });
+
+        requestAnimationFrame(function loop() {
+            const easting = 8;
+            cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
+            cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
+
+            cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
+            requestAnimationFrame(loop);
+        });
+
+        document.querySelectorAll("[data-cursor]").forEach((item) => {
+        item.addEventListener("mouseover", (e) => {
+            if (item.dataset.cursor === "pointer") {
+                cursorBorder.style.backgroundColor = "transparent";
+                cursorBorder.style.setProperty("--size", "80px");
+                cursor.style.borderRadius = "0"
+            }
+        });
+        item.addEventListener("mouseout", (e) => {
+            cursorBorder.style.backgroundColor = "unset";
+            cursorBorder.style.mixBlendMode = "unset";
+            cursorBorder.style.setProperty("--size", "50px");   
+            cursor.style.borderRadius = "50%"
+            cursor.style.backgroundColor = "black"
+            });
+        });
+    }
         const handleSideScroll = (e) => {
             if ((document.getElementById('sideScrollDiv').scrollLeft == 0 && e.deltaY < 0) || (document.getElementById('sideScrollDiv').scrollLeft + document.getElementById('sideScrollDiv').clientWidth >= document.getElementById('sideScrollDiv').scrollWidth && e.deltaY > 0)) {    
             } else {
