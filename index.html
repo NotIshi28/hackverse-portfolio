@@ -438,6 +438,7 @@
             font-size: 1.5vw;
             font-family: BitxMap;
             margin-top: 2vw;
+            margin-left: 2.4vw;
         }
         .aboutCard img {
             width: 30vw;
@@ -885,8 +886,20 @@
             TO CONNECT WITH YOU!
         </div>
     </div>
+    <div class="aboutMyWork">ABOUT MY WORK</div>
+
     <div class="projectsRow" id="projects">
-        <div class="aboutMyWork">ABOUT MY WORK</div>
+        <div class="aboutCard" id="snake" onclick="snake()">
+            <div class="cardHeading">
+                <h1>WEIRDSNAKE</h1>
+                <i class="fas fa-jobhi"></i>
+            </div>
+            <img src="public/snake_logo.png">
+            <div class="cardHeading">
+                <p>WEB APP LAPTOP/MOBILE</p>
+                <p>2022 MAR.</p>
+            </div>
+        </div>
         <div class="aboutCard">
             <div class="cardHeading">
                 <h1>GOBOXBOX</h1>
@@ -1028,6 +1041,10 @@
         function scrollToTheElement(id) {
             const elmnt = document.getElementById(id)
             elmnt.scrollIntoView({behavior: 'smooth'})
+        }
+
+        function snake(){
+            window.location.href = "snake.html"
         }
     </script>
 </body>
