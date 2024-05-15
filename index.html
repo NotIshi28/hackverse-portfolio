@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <script src="https://unpkg.com/lenis@1.0.45/dist/lenis.min.js"></script> 
+    
+
     <style>
         @font-face {
             font-family: BitxMap;
@@ -42,16 +45,19 @@
         }
 
         .navbar {
+            position: fixed;
             border: 1px solid black;
             display: flex;
             font-family: BitxMap;
             gap: 3vw;
             align-items: center;
             padding: 0.5vw 0.8vw 0.5vw 0.8vw;
-            margin-top: 1.7vw;
-            margin-left: 2vw;
+            top: 1.7vw;
+            left: 2vw;
             width: max-content;
-            background-color: #fbfbfb;
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(5px);
+            
         }
 
         .welcomeNav {
@@ -89,7 +95,7 @@
         .introWel {
             display: flex;
             margin-left: 2vw;
-            margin-top: 4vw;
+            margin-top: 8vw;
             justify-content: space-between;
         }
 
@@ -356,6 +362,7 @@
             top: 0;
             left: 0;
             pointer-events: none;
+            z-index: 9999;
         }
         .overlay {
             position: fixed;
@@ -515,7 +522,6 @@
             margin-bottom: 2vh;
             margin-top: 2vh;
         }
-
     </style>
 
 
@@ -905,7 +911,7 @@
                 <h1>GOBOXBOX</h1>
                 <i class="fas fa-jobhi"></i>
             </div>
-            <img src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
+            <img class="image-project" src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
             <div class="cardHeading">
                 <p>MOBILE APP IOS/ANDROID</p>
                 <p>2022 MAR.</p>
@@ -916,7 +922,7 @@
                 <h1>GOBOXBOX</h1>
                 <i class="fas fa-jobhi"></i>
             </div>
-            <img src="https://img.itch.zone/aW1nLzEzODI5MjI2LnBuZw==/315x250%23c/2pY61W.png">
+            <img class="image-project" src="https://img.itch.zone/aW1nLzEzODI5MjI2LnBuZw==/315x250%23c/2pY61W.png">
             <div class="cardHeading">
                 <p>MOBILE APP IOS/ANDROID</p>
                 <p>2022 MAR.</p>
@@ -929,7 +935,7 @@
                 <h1>GOBOXBOX</h1>
                 <i class="fas fa-jobhi"></i>
             </div>
-            <img src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
+            <img class="image-project" src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
             <div class="cardHeading">
                 <p>MOBILE APP IOS/ANDROID</p>
                 <p>2022 MAR.</p>
@@ -940,7 +946,7 @@
                 <h1>GOBOXBOX</h1>
                 <i class="fas fa-jobhi"></i>
             </div>
-            <img src="https://img.itch.zone/aW1nLzEzODI5MjI2LnBuZw==/315x250%23c/2pY61W.png">
+            <img class="image-project" src="https://img.itch.zone/aW1nLzEzODI5MjI2LnBuZw==/315x250%23c/2pY61W.png">
             <div class="cardHeading">
                 <p>MOBILE APP IOS/ANDROID</p>
                 <p>2022 MAR.</p>
@@ -951,7 +957,7 @@
                 <h1>GOBOXBOX</h1>
                 <i class="fas fa-jobhi"></i>
             </div>
-            <img src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
+            <img class="image-project" src="https://media.discordapp.net/attachments/1236560649375715360/1239280192636063754/retrorampage.png?ex=6642591e&is=6641079e&hm=ba1d2341ccf4dba964b830e37184aad1382ca8c29019c2996961f44c8f58956f&=&format=webp&quality=lossless&width=953&height=563">
             <div class="cardHeading">
                 <p>MOBILE APP IOS/ANDROID</p>
                 <p>2022 MAR.</p>
@@ -1023,8 +1029,14 @@
             document.getElementById("country").innerHTML = "BASED IN INDIA [" + time + " " + ampm + "]"
         }, 1000)
         window.addEventListener('mousemove', (e) => {
+            const keyframes = [
+                { top: `${e.clientY - 10}px` },
+                { left: `${e.clientX - 10}px` },
+            ];
             document.getElementById('cursor').style.top = `${e.clientY - 10}px`
             document.getElementById('cursor').style.left = `${e.clientX - 10}px`
+            document.getElementById('cursor').animate(keyframes, {duration: 200, fill: "forwards"})
+            
         })
         const handleSideScroll = (e) => {
             if ((document.getElementById('sideScrollDiv').scrollLeft == 0 && e.deltaY < 0) || (document.getElementById('sideScrollDiv').scrollLeft + document.getElementById('sideScrollDiv').clientWidth >= document.getElementById('sideScrollDiv').scrollWidth && e.deltaY > 0)) {    
@@ -1042,6 +1054,18 @@
             const elmnt = document.getElementById(id)
             elmnt.scrollIntoView({behavior: 'smooth'})
         }
+        const lenis = new Lenis()
+
+        lenis.on('scroll', (e) => {
+            console.log(e)
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
 
         function snake(){
             window.location.href = "snake.html"
