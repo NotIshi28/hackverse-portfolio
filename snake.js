@@ -153,7 +153,7 @@ window.onload = function() {
     }
 
     var snake = new Snake();
-    var level = new Level(15, 15, 32, 32);
+    var level = new Level(52, 15, 32, 32);
     
     var score = 0;            
     var gameover = 1;      
