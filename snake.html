@@ -59,6 +59,7 @@ p {
 
 #viewport{
     margin: 2vw;
+    width: 96vw;
 }
 .gameName{
     font-family: bitxmap;
@@ -66,10 +67,21 @@ p {
     margin-left: 2vw;
     margin-top: 2vw;
 }
+.cursor {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+}
 
 </style>
 </head>
 <body>
+    <div class="cursor" id="cursor"></div>
     <div class="navbar">
         <svg class="icon" id="cross" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 27">
             <rect id="topLeft" width="9" height="9" fill="currentColor"></rect>
@@ -77,13 +89,25 @@ p {
             <rect id="topRight" x="18" width="9" height="9" fill="currentColor"></rect>
             <rect id="center" x="9" y="9" width="9" height="9" fill="currentColor"></rect>
     </svg>
-        <a class="welcomeNav" onclick="scrollToTheElement('welcome')">WELCOME</a>
-        <a onclick="scrollToTheElement('about')">ABOUT</a>
-        <a onclick="scrollToTheElement('projects')">PROJECTS</a>
-        <a onclick="scrollToTheElement('contact')">CONTACT</a>
+        <a class="welcomeNav" onclick="window.location.href='/#welcome'">WELCOME</a>
+        <a onclick="window.location.href='/#about'">ABOUT</a>
+        <a onclick="window.location.href='/#projects'">PROJECTS</a>
+        <a onclick="window.location.href='/#contact'">CONTACT</a>
     </div>
     <p class="gameName">WEIRDSNAKE</p>
 
 <canvas id="viewport" width="1656" height="480"></canvas>
 </body>
+<script>
+    window.addEventListener('mousemove', (e) => {
+        const keyframes = [
+            { top: `${e.clientY - 10}px` },
+            { left: `${e.clientX - 10}px` },
+        ];
+        document.getElementById('cursor').style.top = `${e.clientY - 10}px`
+        document.getElementById('cursor').style.left = `${e.clientX - 10}px`
+        document.getElementById('cursor').animate(keyframes, {duration: 200, fill: "forwards"})
+        
+    })
+</script>
 </html>
