@@ -90,75 +90,19 @@
             flex: 1;
             border-radius: 2.3vw;
             display: flex;
-            /* justify-content: flex-start; */
             flex-direction: column;
             gap: 1vw;
         }
-         .sideNavItem {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            font-family: bitxmap;
-            border: 1px solid black;
-            border-radius: 2.3vw;
-            font-size: 3vw;
-            padding: 1vw 0 1vw 0;
-        }
-
         .sideNavItem {
             flex: 1;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
-            font-family: bitxmap;
+            font-family: monument;
             border: 1px solid black;
             border-radius: 2.3vw;
             font-size: 3vw;
-            padding: 1vw 0 1vw 0;
-            transition: background-color 0.3s linear; 
-            transition: color 0.3s linear; 
-
         }
-
-        .sideNavItem:hover{
-            background-color: #202020;
-            transition: background-color 0.3s linear; 
-            color: white;
-            .arrow{
-            filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(202deg) brightness(104%) contrast(103%);
-            }
-
-            }
-            .sideNavItem p{
-                margin-left: 2vw;
-            }
-
-            .resumeGo{
-                display: flex;
-                gap:30vw;
-            }
-
-            .arrow{
-            height: 3vw;
-            width: 3vw;
-            margin-top: 1vw;
-            position: absolute;
-            right: 8vw;
-            }
-
-            
-            .knowMore{
-                font-size: 1.5vw;
-            }
-
-        .buddha{
-            /* height:25vw; */
-            /* height: 10vw; */
-            border-radius: 2.3vw;
-        } 
         .answerContainer {
             flex: 1;
             overflow: auto;
@@ -182,19 +126,15 @@
             display: flex;
             padding: 2.5vw 0vw 0px 1.9vw;
             justify-content: flex-start;
-            
         }
         .myQuestion {
             border: 1px solid black;
             border-radius: 2.3vw;
-            color: white;
             border-top-right-radius: 0px;
             padding: 1vw;
             font-size: 1.1vw;
             width: 40%;
             text-align: center;
-            background-color: #202020;
-
         }
         .yourAnswer {
             border: 1px solid black;
@@ -221,8 +161,6 @@
         <a onclick="window.location.href='/#about'">ABOUT</a>
         <a onclick="window.location.href='/#projects'">PROJECTS</a>
         <a onclick="window.location.href='/#contact'">CONTACT</a>
-        <a onclick="window.location.href='bot.html'">KNOW MORE</a>
-
     </div>
     <div class="container">
         <div class="container2">
@@ -231,19 +169,13 @@
                     
                 </div>
                 <div class="inputContainer">
-
                     <input placeholder="Enter your query:" id="query" autocomplete="off">
                 </div>
             </div>
             <div class="right">
-                <img class="buddha" src="public/buddha.png">
-                <div class="sideNavItem" onclick="window.open('https:\\www.linkedin.com/in/ishit-rastogi-28351a297', '_blank');">
-                <div class="resumeGo" >
-                    <p>RESUME</p>
-                    <img src="public/arrow_buddha.svg" class="arrow">
-                </div>
-                <p class="knowMore">Know more about me!</p>
-                </div>
+                <div class="sideNavItem" onclick="window.location.href = '/'">HOME</div>
+                <div class="sideNavItem" onclick="window.location.href = '/#contact'">CONTACT</div>
+                <div class="sideNavItem" onclick="window.location.href = '/#projects'">PROJECTS</div>
             </div>
         </div>
     </div>
